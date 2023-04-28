@@ -14,10 +14,6 @@ locals {
 }
 
 provider "azurerm" {
-  subscription_id = "8536ea4c-0a5d-4f33-9058-7f851db30173"
-  tenant_id = "b9325d2b-9688-4c2e-b137-a732c58109d5"
-  client_id = "e08c3b54-0760-4fb4-b5ec-8b38310a3109"
-  client_secret = "EN38Q~zVWIcZGa.HaRk6mB6Sno~4aUswhyUdda-i"
   features {}
 }
 
