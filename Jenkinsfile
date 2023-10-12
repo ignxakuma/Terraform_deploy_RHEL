@@ -1,20 +1,24 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Building..'
+                git url: 'https://github.com/ignxakuma/Terraform_deploy_RHEL.git' credentialsId: 'gitpass' branch: 'master'
             }
         }
-        stage('Test') {
+        stage('Terraform-Init') {
             steps {
-                echo 'Testing..'
+                sh 'terraform init'
             }
         }
-        stage('Deploy') {
+        stage('Terraform-plan') {
             steps {
-                echo 'Deploying....'
+                sh 'terraform plan'
+            }
+        }
+        stage('Terraform-apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
             }
         }
     }
