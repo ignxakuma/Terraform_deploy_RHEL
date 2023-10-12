@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/ignxakuma/Terraform_deploy_RHEL.git' credentialsId: 'gitpass' branch: 'master'
+                git url: 'https://github.com/ignxakuma/Terraform_deploy_RHEL.git', credentialsId: 'gitpass', branch: 'master'
             }
         }
         stage('Terraform-Init') {
