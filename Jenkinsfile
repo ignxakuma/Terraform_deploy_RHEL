@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Terraform-plan') {
             steps {
-                sh 'terraform plan -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}''
+                sh '''terraform plan -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' '''
             }
         }
         stage('Terraform-apply') {
