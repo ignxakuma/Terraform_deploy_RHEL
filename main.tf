@@ -16,6 +16,13 @@ locals {
 provider "azurerm" {
   features {}
 }
+variable "bundle_name" {
+   type = string
+}
+
+variable "env_name" {
+  type = string
+}
 
 resource "azurerm_resource_group" "Terrarg" {
     name = "terrarg"
