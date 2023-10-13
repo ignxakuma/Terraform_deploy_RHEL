@@ -162,7 +162,7 @@ resource "azurerm_network_interface" "terranic" {
 }
 
 resource "azurerm_linux_virtual_machine" "terra-docker-vm" {
-  name                = "terra-docker-vm"
+  name                = var.bundle_name+"_"+var.env_name
   resource_group_name = azurerm_resource_group.Terrarg.name
   location            = azurerm_resource_group.Terrarg.location
   size                = "Standard_B1s"
