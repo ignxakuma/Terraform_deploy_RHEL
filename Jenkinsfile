@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Terraform-apply') {
             steps {
-                sh 'terraform apply -var bundle_name=$(Bundle_name) -var env_name=$(Env_name) --auto-approve'
+                sh 'terraform apply -var 'bundle_name=$(Bundle_name)' -var 'env_name=$(Env_name)' --auto-approve'
             }
         }
     }
