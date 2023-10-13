@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string defaultValue: 'bundle01', description: 'Enter bundle name', name: 'Bundle_name:', trim: true 
-        string defaultValue: 'bundle01', description: 'Enter Env name', name: 'Env_name:', trim: true
+        string defaultValue: 'dev', description: 'Enter Env name', name: 'Env_name:', trim: true
     }
     stages {
         stage('Checkout') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Terraform-apply') {
             steps {
-                sh 'terraform apply --auto-approve'
+                sh 'terraform apply -var 'bundle_name=$(Bundle_name) -var 'env_name=$(Env_name) --auto-approve'
             }
         }
     }
