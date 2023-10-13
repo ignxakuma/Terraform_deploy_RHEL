@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+        string defaultValue: 'bundle01', description: 'Enter bundle name', name: 'Bundle_name:', trim: true 
+        string defaultValue: 'bundle01', description: 'Enter Env name', name: 'Env_name:', trim: true
+    }
     stages {
         stage('Checkout') {
             steps {
