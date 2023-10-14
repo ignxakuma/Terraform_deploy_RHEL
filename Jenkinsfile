@@ -22,6 +22,11 @@ pipeline {
             }
         }
         stage('Terraform-apply') {
+            when{
+                expression
+                {
+                    return params.Destroy_infra == 'No'
+                }
             steps {
                 sh "terraform apply -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
             }
