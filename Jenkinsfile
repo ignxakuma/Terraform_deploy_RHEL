@@ -3,6 +3,7 @@ pipeline {
     parameters {
         string defaultValue: 'bundle01', description: 'Enter bundle name', name: 'Bundle_name', trim: true 
         string defaultValue: 'dev', description: 'Enter Env name', name: 'Env_name', trim: true
+        choice choices: ['No', 'Yes'], description: 'Do you want to use terraform destroy command?', name: 'Destroy_infra'
     }
     stages {
         stage('Checkout') {
@@ -25,5 +26,17 @@ pipeline {
                 sh "terraform apply -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
             }
         }
+        stage("Terraform-deploy")
+        {
+            when{
+                expression
+                {
+                    return params.Destroy_infra == 'Yes'
+                }
+                }
+            steps{
+                sh "terraform destroy -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
+            }
+        }           
     }
 }
