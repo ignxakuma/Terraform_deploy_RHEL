@@ -26,7 +26,7 @@ pipeline {
                 sh "terraform apply -var 'bundle_name=${params.Bundle_name}' -var 'env_name=${params.Env_name}' --auto-approve"
             }
         }
-        stage("Terraform-deploy")
+        stage("Terraform-destroy")
         {
             when{
                 expression
