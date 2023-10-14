@@ -33,7 +33,7 @@ resource "azurerm_resource_group" "Terrarg" {
 }
 
 resource "azurerm_storage_account" "Terrastorage171998" {
-    name = "terrastorage171998"
+    name = "${var.bundle_name}-${var.env_name}-171998"
     resource_group_name = azurerm_resource_group.Terrarg.name
     location = azurerm_resource_group.Terrarg.location
     account_tier = "Standard"
