@@ -1,8 +1,7 @@
 name: Terrform Build
 on: 
   workflow dispatch:
-  push: 
-    branches: ["main" , "master"]
+  push: ["main" , "master"]
   PR : ["master"]
 
 permissions:
