@@ -3,7 +3,8 @@ on:
   workflow dispatch:
   push: 
     branches: [ "main" , "master"]
-  PR : ["master"]
+  pr:
+    branches: ["master"]
 
 permissions:
   id-token: write
